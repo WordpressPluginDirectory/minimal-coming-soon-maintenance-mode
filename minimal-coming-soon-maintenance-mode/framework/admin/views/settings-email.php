@@ -41,7 +41,7 @@ if (!isset($signals_csmm_options['mail_system_to_use'])) {
       <div class="signals-double-group signals-clearfix">
       <div class="signals-form-group">
 				<label for="signals_csmm_api" class="signals-strong"><?php esc_attr_e( 'MailChimp API', 'minimal-coming-soon-maintenance-mode' ); ?></label>
-				<input type="text" name="signals_csmm_api" id="signals_csmm_api" value="<?php esc_attr_e( $signals_csmm_options['mailchimp_api'] ); ?>" placeholder="<?php esc_attr_e( 'MailChimp API key', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
+				<input type="text" name="signals_csmm_api" id="signals_csmm_api" value="<?php echo esc_attr( $signals_csmm_options['mailchimp_api'] ); ?>" placeholder="<?php esc_attr_e( 'MailChimp API key', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
 
 				<p class="signals-form-help-block"><?php esc_attr_e( 'Enter your MailChimp API key.', 'minimal-coming-soon-maintenance-mode' ); ?> Open your <a href="https://us2.admin.mailchimp.com/account/api/" target="_blank"><?php esc_attr_e( 'MailChimp profile', 'minimal-coming-soon-maintenance-mode' ); ?></a> <?php esc_attr_e( 'to get the API key. If you don\'t want to enable the subscription option, leave this field blank.', 'minimal-coming-soon-maintenance-mode' ); ?></p>
         <p><button type="submit" name="signals_csmm_submit" class="signals-btn"><?php esc_attr_e( 'Save API key &amp; refresh mailing lists', 'minimal-coming-soon-maintenance-mode' ); ?></button></p>
@@ -72,9 +72,9 @@ if (!isset($signals_csmm_options['mail_system_to_use'])) {
                         } // if success
 
 						if ( ! $signals_lists ) {
-							echo '<p class="signals-form-help-block">' . __( '<b>Error</b> fetching mailing lists. Please make sure that the API key you entered is correct and try again.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
+							echo '<p class="signals-form-help-block">' . esc_html__( '<b>Error</b> fetching mailing lists. Please make sure that the API key you entered is correct and try again.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
 						} else if ( count($signals_lists) == 0 ) {
-							echo '<p class="signals-form-help-block">' . __( 'It seems that there is no list created for this account. Create one on the MailChimp website and then try again.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
+							echo '<p class="signals-form-help-block">' . esc_html__( 'It seems that there is no list created for this account. Create one on the MailChimp website and then try again.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
 						} else {
 							echo '<select name="signals_csmm_list" id="signals_csmm_list">';
               echo '<option value="">- select a mailing list -</option>';
@@ -83,10 +83,10 @@ if (!isset($signals_csmm_options['mail_system_to_use'])) {
 							}
 
 							echo '</select>';
-							echo '<p class="signals-form-help-block">' . __( 'Select the MailChimp list in which you want to store the subscriber data.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
+							echo '<p class="signals-form-help-block">' . esc_html__( 'Select the MailChimp list in which you want to store the subscriber data.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
 						}
 					} else {
-						echo '<p class="signals-form-help-block">' . __( 'Enter your MailChimp API key in the field above and click "Save API key". Your lists will refresh and appear here.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
+						echo '<p class="signals-form-help-block">' . esc_html__( 'Enter your MailChimp API key in the field above and click "Save API key". Your lists will refresh and appear here.', 'minimal-coming-soon-maintenance-mode' ) . '</p>';
 					}
 
 				?>
@@ -103,14 +103,14 @@ if (!isset($signals_csmm_options['mail_system_to_use'])) {
 			<div class="signals-double-group signals-clearfix">
 				<div class="signals-form-group">
 					<label for="signals_csmm_message_noemail" class="signals-strong"><?php esc_attr_e( 'Message: No Email', 'minimal-coming-soon-maintenance-mode' ); ?></label>
-					<input type="text" name="signals_csmm_message_noemail" id="signals_csmm_message_noemail" value="<?php echo esc_attr_e( $signals_csmm_options['message_noemail'] ); ?>" placeholder="<?php esc_attr_e( 'Message when email is not provided', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
+					<input type="text" name="signals_csmm_message_noemail" id="signals_csmm_message_noemail" value="<?php echo esc_attr( $signals_csmm_options['message_noemail'] ); ?>" placeholder="<?php esc_attr_e( 'Message when email is not provided', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
 
 					<p class="signals-form-help-block"><?php esc_attr_e( 'Provide error message to show if the user forgets to provide email address.', 'minimal-coming-soon-maintenance-mode' ); ?></p>
 				</div>
 
 				<div class="signals-form-group">
 					<label for="signals_csmm_message_subscribed" class="signals-strong"><?php esc_attr_e( 'Message: Already Subscribed', 'minimal-coming-soon-maintenance-mode' ); ?></label>
-					<input type="text" name="signals_csmm_message_subscribed" id="signals_csmm_message_subscribed" value="<?php echo esc_attr_e( $signals_csmm_options['message_subscribed'] ); ?>" placeholder="<?php esc_attr_e( 'Message when user is already subscribed', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
+					<input type="text" name="signals_csmm_message_subscribed" id="signals_csmm_message_subscribed" value="<?php echo esc_attr( $signals_csmm_options['message_subscribed'] ); ?>" placeholder="<?php esc_attr_e( 'Message when user is already subscribed', 'minimal-coming-soon-maintenance-mode' ); ?>" class="signals-form-control">
 
 					<p class="signals-form-help-block"><?php esc_attr_e( 'Provide message to show if the user is already subscribed to the mailing list.', 'minimal-coming-soon-maintenance-mode' ); ?></p>
 				</div>
